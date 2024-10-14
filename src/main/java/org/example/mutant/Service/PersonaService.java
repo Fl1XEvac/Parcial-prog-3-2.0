@@ -2,7 +2,6 @@ package org.example.mutant.Service;
 
 import org.example.mutant.Repositories.PersonaRepository;
 import org.example.mutant.Entities.Persona;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -113,8 +112,9 @@ public class PersonaService {
         // Retornamos las estadísticas
         return new Stats(countMutants, countHumans, ratio);
     }
-    public void save(Persona persona) {
+    public Persona save(Persona persona) {
         personaRepository.save(persona);  // Guardar la persona en la base de datos
+        return persona;
     }
 
 }
